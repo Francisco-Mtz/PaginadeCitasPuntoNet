@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { CitarComponent } from './citar/citar.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { UsuarioComponent } from './componentes/usuario/usuario.component';
+import { UsuariosRegistradosComponent } from './componentes/usuariosRegistrados/usuariosregistrados.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UsuarioComponent } from './componentes/usuario/usuario.component';
     CitarComponent,
     RegistroComponent,
     UsuarioComponent,
+    UsuariosRegistradosComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -1,0 +1,28 @@
+.card-body{
+  width:600px;
+  position:static;
+}
+
+.imagen {
+  float: left;
+  height: 200px;
+  padding-right: 0px;
+  margin-right: 0px;
+  border: 0px;
+}
+
+.datos {
+  float: left;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.card-title{
+  text-anchor:initial;
+}
+
+.card {
+  float: left;
+  background-color: #9cb8dc;
+  margin-right: 20px;
+}

@@ -1,4 +1,2 @@
 <h1>PAGINA HOME</h1>
-<div>
-  <app-usuario *ngFor="let i of [1,1,1,1,1,1]" texto="holamundo"></app-usuario>
-</div>
+<app-usuariosregistrados *ngFor="let elemento of lstUsuarios" [oUsuario]="elemento"></app-usuariosregistrados>

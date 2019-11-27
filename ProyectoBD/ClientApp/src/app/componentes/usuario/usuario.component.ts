@@ -6,4 +6,6 @@ import { Component, Input } from '@angular/core';  /*Utilizamos input para poder
 })
 export class UsuarioComponent {
   @Input() texto: string;
+
+  
 }

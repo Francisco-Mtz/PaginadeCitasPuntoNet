@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProyectoBD.Models;
 
 namespace ProyectoBD
 {
@@ -27,6 +29,9 @@ namespace ProyectoBD
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            var connection = @"server=.\SQLEXPRESS;DataBase=BuscoParejaBD; Trusted_Connection=True; ConnectRetryCount=0";
+            services.AddDbContext<MyDBContext>(option => option.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
