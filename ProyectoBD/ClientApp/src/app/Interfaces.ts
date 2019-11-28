@@ -1,16 +1,5 @@
-import { Component, Input } from '@angular/core';  
 
-@Component({
-  selector: 'app-usuariosregistrados',
-  templateUrl: './usuariosregistrados.component.html',
-  styleUrls: ['./usuariosregistrados.component.css']
-})
-export class UsuariosRegistradosComponent {
-  @Input() oUsuario: Usuario;
-
-}
-
-interface Usuario {
+export interface Usuario {
   Id: number,
   sexo: string,
   contrasena: string,
@@ -25,4 +14,10 @@ interface Usuario {
   claveEstado: string,
   claveMunicipio: number,
   claveColonia: number,
+}
+
+export interface MyResponse {
+  Success: number,
+  Menssage: any,
+  Data: string,
 }

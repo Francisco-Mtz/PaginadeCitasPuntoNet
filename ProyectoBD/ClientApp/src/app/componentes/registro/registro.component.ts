@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Console } from '@angular/core/src/console';
+import { RegistroService } from '../../service/registro.service';
 
 @Component({
   selector: 'app-registro',
@@ -27,14 +27,15 @@ export class RegistroComponent implements OnInit {
 
   formRegistro: FormGroup;
 
-  constructor() {
+  constructor( protected registroService: RegistroService ) {
     this.formRegistro = this.createFormGroup();
   }
 
   onSaveRegister(datos) {
     if (this.formRegistro.valid) {
       /*Guardar en la BD*/
-      this.formRegistro.reset();
+      this.registroService.Add(datos.sexo, datos.contrasenia, datos.preferenciasex, datos.email, '' , datos.numero , datos.calle, datos.nombre, datos.apellidoP, datos.apellidoM, datos.estado , datos.municipio, datos.colonia);
+      this.formRegistro.reset(); 
       console.log(datos);
       console.log("Valido");
     } else console.log("Invalido");
@@ -54,75 +55,51 @@ export class RegistroComponent implements OnInit {
   get municipio() { return this.formRegistro.get('municipio'); }
   get colonia() { return this.formRegistro.get('colonia'); }
 
+
   public Estados;
   public Municipios;
   public Colonias;
+  public Preferencias;
+  public Sexos;
+
   async ngOnInit() {
+
     this.Estados = [
-      {
-        nombre: "Nuevo Leon",
-        id: 1,
-      },
-      {
-        nombre: "Guadalajara",
-        id: 2,
-      },
-      {
-        nombre: "Veracruz",
-        id: 3,
-      },
-      {
-        nombre: "Guerrero",
-        id: 4,
-      },
-      {
-        nombre: "Estado de Mexico",
-        id: 5,
-      }];
+      { nombre: "Nuevo Leon", id: 1 },
+      { nombre: "Guadalajara", id: 2 },
+      { nombre: "Veracruz", id: 3 },
+      { nombre: "Guerrero", id: 4 },
+      { nombre: "Estado de Mexico", id: 5 }
+    ];
 
     this.Municipios = [
-      {
-        nombre: "Municipio 1",
-        id: 1,
-      },
-      {
-        nombre: "Municipio 2",
-        id: 2,
-      },
-      {
-        nombre: "Municipio 3",
-        id: 3,
-      },
-      {
-        nombre: "Municipio 4",
-        id: 4,
-      },
-      {
-        nombre: "Municipio 5",
-        id: 5,
-      }];
+      { nombre: "Municipio 1", id: 1 },
+      { nombre: "Municipio 2", id: 2 },
+      { nombre: "Municipio 3", id: 3 },
+      { nombre: "Municipio 4", id: 4 },
+      { nombre: "Municipio 5", id: 5 }
+    ];
 
     this.Colonias = [
-      {
-        nombre: "Colonia 1",
-        id: 1,
-      },
-      {
-        nombre: "Colonia 2",
-        id: 2,
-      },
-      {
-        nombre: "Colonia 3",
-        id: 3,
-      },
-      {
-        nombre: "Colonia 4",
-        id: 4,
-      },
-      {
-        nombre: "Colonia 5",
-        id: 5,
-      }];
+      { nombre: "Colonia 1", id: 1 },
+      { nombre: "Colonia 2", id: 2 },
+      { nombre: "Colonia 3", id: 3 },
+      { nombre: "Colonia 4", id: 4 },
+      { nombre: "Colonia 5", id: 5, }
+    ];
+
+    this.Preferencias = [
+      { nombre: "Hombres" },
+      { nombre: "Mujeres" },
+      { nombre: "Lo que caiga" }
+    ];
+
+    this.Sexos = [
+      { nombre: "Mujer" },
+      { nombre: "Hombre" }
+
+    ];
+
   }
 
 

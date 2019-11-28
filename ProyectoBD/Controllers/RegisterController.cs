@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProyectoBD.Models.Response;
 using ProyectoBD.Models.ViewModels;
 
 namespace ProyectoBD.Controllers
@@ -38,6 +39,39 @@ namespace ProyectoBD.Controllers
                                                      claveColonia = d.claveColonia,
                                                  }).ToList();
             return lst;
+        }
+
+        [HttpPost("[action]")]
+        public MyResponse Add([FromBody]UsuarioViewModel model)
+        {
+            MyResponse oR = new MyResponse();  //Respuestas
+
+            try
+            {
+                Models.Usuario oUsuario = new Models.Usuario(); //Va a la tabal de la bd
+                oUsuario.sexo = model.sexo;
+                oUsuario.contrasena = model.contrasena;
+                oUsuario.preferenciaSexual = model.preferenciaSexual;
+                oUsuario.email = model.email;
+                oUsuario.foto = model.foto;
+                oUsuario.direccionNumero = model.direccionNumero;
+                oUsuario.direccionCalle = model.direccionCalle;
+                oUsuario.nombrePila = model.nombrePila;
+                oUsuario.apellidoPaterno = model.apellidoPaterno;
+                oUsuario.apellidoMaterno = model.apellidoMaterno;
+                oUsuario.claveEstado = model.claveEstado;
+                oUsuario.claveMunicipio = model.claveMunicipio;
+                oUsuario.claveColonia = model.claveColonia;
+                db.Usuario.Add(oUsuario);
+                db.SaveChanges();   //Lo guarda en la base de datos
+                oR.Success = 1;
+            }
+            catch(Exception ex)
+            {
+                oR.Success = 0;
+                oR.Menssage = ex.Message;
+            }
+            return oR;
         }
     }
 }

@@ -14,6 +14,8 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { UsuarioComponent } from './componentes/usuario/usuario.component';
 import { UsuariosRegistradosComponent } from './componentes/usuariosRegistrados/usuariosregistrados.component';
 
+import { RegistroService } from './service/registro.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,7 @@ import { UsuariosRegistradosComponent } from './componentes/usuariosRegistrados/
       { path: 'citar', component: CitarComponent },
     ])
   ],
-  providers: [],
+  providers: [RegistroService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

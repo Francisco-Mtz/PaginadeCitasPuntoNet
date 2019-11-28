@@ -7,7 +7,7 @@
   float: left;
   height: 200px;
   padding-right: 0px;
-  margin-right: 0px;
+  margin-left: 10px;
   border: 0px;
 }
 
@@ -25,4 +25,5 @@
   float: left;
   background-color: #9cb8dc;
   margin-right: 20px;
+  margin-bottom: 20px;
 }

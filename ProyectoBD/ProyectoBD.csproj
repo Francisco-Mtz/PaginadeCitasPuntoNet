@@ -27,10 +27,14 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\componentes\usuariosRegistrados\usuariosregistrados.component.ts" />
+    <None Remove="ClientApp\src\app\interfaces.ts" />
+    <None Remove="ClientApp\src\app\service\registro.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\componentes\usuariosRegistrados\usuariosregistrados.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Interfaces.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\service\registro.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

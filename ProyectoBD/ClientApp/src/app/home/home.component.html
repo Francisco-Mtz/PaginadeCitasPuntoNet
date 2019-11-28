@@ -1,2 +1,2 @@
 <h1>PAGINA HOME</h1>
-<app-usuariosregistrados *ngFor="let elemento of lstUsuarios" [oUsuario]="elemento"></app-usuariosregistrados>
+<app-usuariosregistrados *ngFor="let elemento of lstUsuarios | async" [oUsuario]="elemento"></app-usuariosregistrados>
